@@ -26,8 +26,10 @@ blocks:
         commands:
           - checkout
           - 'echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin'
+          - cd Backend
           - cat docker-compose.ci.yml | envsubst | tee docker-compose.yml
       jobs:
         - name: Integration Test
           commands:
+            - cd Backend
             - docker-compose run project npm test
