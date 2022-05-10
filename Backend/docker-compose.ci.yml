@@ -10,8 +10,8 @@ services:
     ports: 
       - '5432:5432'
 
-  addressbook:
-    image: $DOCKER_USERNAME/dockerizing-nodejs-addressbook:latest
+  project:
+    image: $DOCKER_USERNAME/dockerizing-nodejs-project:latest
     command: "npm run migrate && npm run pm2"
     environment:
       DB_SCHEMA: postgres
